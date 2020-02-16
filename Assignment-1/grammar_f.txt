@@ -1,0 +1,136 @@
+'''query :  select
+			| groupquery
+			| LP query RP
+			| insert
+			| delete
+			| update
+			| drop
+			| create
+			'''
+			
+'''table : NAME
+			|  LP query	RP
+			| NAME AS NAME
+			| table COMMA table'''
+			
+'''select : SELECT list FROM table where
+                | SELECT DISTINCT list FROM table where'''
+
+''' where : WHERE lst order
+             | order
+			 | '''
+
+
+			 
+''' order : ORDER_BY list|'''
+
+''' groupquery : SELECT list FROM table where group '''
+
+''' lst  : condition
+              | condition AND condition
+              | condition OR condition
+	          | NAME BETWEEN NUMBER AND NUMBER
+	          | NAME IN LP query RP
+		  |  NAME '>' LP query RP
+		 | NAME '<' LP query RP
+		 | NAME '>' ANY LP query RP
+		 | NAME '>' ALL LP query RP
+		 | NAME '<' ANY LP query RP
+		 | NAME '<' ALL LP query RP
+		 | NAME '<' agg
+		 | NAME '>' agg
+		 | agg '>' NUMBER
+		 | NAME '=' agg
+		 | agg '=' NUMBER
+		 | agg '<' NUMBER
+              '''
+			  
+''' condition : NAME '>' NUMBER
+					| NAME '>' agg
+					| NAME '<' NUMBER
+					| NAME '<' agg
+					| NAME '=' NUMBER
+					| NAME '=' agg
+					| NAME '>' NAME
+					| NAME '<' NAME
+					| NAME '=' NAME
+					| list '>' list
+					| list '<' list
+					| list '=' list
+					| NAME '=' INV NAME INV  '''
+					
+''' group :  GROUP_BY listg having
+             |
+              '''
+
+''' agg : SUM LP NAME RP
+			| AVG LP NAME RP
+			| COUNT LP NAME RP
+			| MIN LP NAME RP
+			| MAX LP NAME RP
+			| COUNT LP '*' RP
+
+
+			  
+''' list  : '*'
+				| NAME
+				| NAME DOT NAME
+
+              | list COMMA list
+              | list AND NAME
+              | list OR NAME
+	      | LP NAME NATURAL_JOIN NAME RP
+		  | LP NAME NATURAL_JOIN query RP
+		  | LP query NATURAL_JOIN query RP
+		  | LP NAME JOIN query RP
+		  | LP query JOIN query RP
+		  | LP NAME JOIN NAME RP
+		  | NAME NATURAL_JOIN NAME
+		  | NAME NATURAL_JOIN query
+		  | query NATURAL_JOIN query
+		  | NAME JOIN query
+		  | query JOIN query
+		  | NAME JOIN NAME
+			| agg
+              '''
+			  
+			  
+''' listg  : NAME
+              | listg COMMA NAME
+              | listg AND NAME
+              | listg OR NAME
+
+		 
+''' insert : INSERT INTO NAME VALUES LP data RP |
+			 INSERT INTO NAME LP data RP VALUES LP data RP'''
+			
+''' data : NUMBER
+			| NAME
+			| INV NAME INV
+			| data COMMA data'''
+
+''' delete : DELETE FROM table
+			| DELETE FROM table WHERE condition'''	
+
+''' update : UPDATE NAME SET query3
+			| UPDATE NAME SET query3 WHERE condition
+			'''
+''' query3 : NAME '=' expression COMMA query3| NAME '=' expression '''
+
+'''expression : NUMBER '+' NUMBER
+		| NUMBER '-' NUMBER
+		| NUMBER '*' NUMBER
+		| NUMBER '/' NUMBER
+                | INV NAME INV
+		| NAME
+		| NUMBER'''
+			
+''' drop : DROP TABLE NAME '''
+
+''' create : CREATE TABLE NAME LP query2 RP '''
+
+''' query2 : NAME dtype COMMA query2 | NAME dtype '''
+
+''' dtype : 'int' | 'char' | 'varchar' | 'float'  '''
+
+			
