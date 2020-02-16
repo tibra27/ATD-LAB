@@ -1,9 +1,9 @@
 # ATD-LAB
 Assignments related to Advance topics in Databases
-
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ASSIGNMENT-1
-
+------------
 Design as well as implement a parser for the subset of SQL with the following constructs:
 1) CREATE TABLE statement
 2) DROP TABLE statement
@@ -19,3 +19,9 @@ For this task follow two steps:
 INPUT-SQL query
 
 OUTPUT-Parse tree for given SQL statement and error if syntactically wrong.
+
+Reference:
+http://www.dabeaz.com/ply/ply.html
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
