@@ -32,3 +32,5 @@ Implement an Equivalent Relational algebric expression generator which gives all
 INPUT- Single relational algebric expression
 
 OUTPUT- All expression that are euivalent to given expression.
+
+NOTE: All the instructions related to I/O format are specified in the Script itself.
