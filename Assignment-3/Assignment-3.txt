@@ -1,0 +1,5 @@
+Write a Program which shall read a concurrent schedule involving n transactions with read and write instructions on data items from an input file (sample input file attached) and find whether the schedule is Conflict Serializable or not using the graph-based method discussed in the class. In case of conflict serializable schedule, your program shall also give the serializability order as well and for non-serializable schedule, give the cycle(s) present in the graph.The sample input contains 3 transactions (T1, T2, T3) and 3 data items (A, B, C) however your program shall be able to handle any finite number of transactions and data items. There shall not be any constraints on number of transactions and data items.
+
+
+The assignment 3 is to be submitted latest by 11.59pm April 7 in the form of source code and output on my mail
+dgopalani.cse@mnit.ac.in 
