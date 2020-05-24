@@ -1,0 +1,96 @@
+EX-1: (Rule 1,2,3,4a)
+
+E0 = PROJ L4 ( PROJ L41 ( f ) )
+E1 = SIGMA Q1 ^ Q11 ( E0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( f ) )
+E3 = SIGMA Q0 ( E1 * E2 )
+inpt="[ SIGMA Q0 ( [ SIGMA Q1 ^ Q11 ( [ PROJ L4 ( PROJ L41 ( f ) ) ] ) ] * [ SIGMA Q2 ( SIGMA Q21 ( f ) ) ] ) ]"
+
+EX-2: (Rule 1,2,3,4b)
+
+E0 = PROJ L4 ( PROJ L41 ( f ) )
+E1 = SIGMA Q1 ^ Q11 ( E0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( f ) )
+E3 = SIGMA Q0 ( E1 JOIN Q01 E2 )
+inpt="[ SIGMA Q0 ( [ SIGMA Q1 ^ Q11 ( [ PROJ L4 ( PROJ L41 ( f ) ) ] ) ] JOIN Q01 [ SIGMA Q2 ( SIGMA Q21 ( f ) ) ] ) ]"
+
+EX-3: (Rule 1,2,3,5)
+
+E0 = PROJ L4 ( PROJ L41 ( f ) )
+E1 = SIGMA Q1 ^ Q11 ( E0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( f ) )
+E3 = E1 JOIN Q0 E2
+inpt="[ [ SIGMA Q1 ^ Q11 ( [ PROJ L4 ( PROJ L41 ( f ) ) ] ) ] JOIN Q0 [ SIGMA Q2 ( SIGMA Q21 ( f ) ) ] ]"
+
+EX-4: (Rule 1,2,3,4,6a)
+
+E0 = SIGMA Q0 ^ Q01 ( f0 )
+E1 = SIGMA Q1 ( SIGMA Q11 ( E0 )
+E2 = PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) )
+E3 = SIGMA Q3 ( f1 JOINQ31 f2 )
+E4 = ( E1 JOIN E2 ) JOINE3
+inpt="[ ( [ SIGMA Q1 ( SIGMA Q11 ( [ SIGMA Q0 ^ Q01 ( f0 ) ] ) ] JOIN [ PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) ) ] ) JOIN [ SIGMA Q3 ( f1 JOIN Q31 f2 ) ] ]"
+
+
+EX-5: (Rule 1,2,3,4,6b)
+
+E0 = SIGMA Q0 ^ Q01 ( f0 )
+E1 = SIGMA Q1 ( SIGMA Q11 ( E0 )
+E2 = PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) )
+E3 = SIGMA Q3 ( f1 JOIN Q31 f2 )
+E4 = ( E1 JOIN Q4 E2 ) JOIN Q41 ^ Q42 E3
+inpt="[ ( [ SIGMA Q1 ( SIGMA Q11 ( [ SIGMA Q0 ^ Q01 ( f0 ) ] ) ] JOIN Q4 [ PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) ) ] ) JOIN Q41 ^ Q42 [ SIGMA Q3 ( f1 JOIN Q31 f2 ) ] ]"
+
+EX-6: (Rule 1,2,3,7b)
+
+E0 = PROJ L0 ( PROJ L01 ( f0 ) )
+E1 = SIGMA Q1 ^ Q11 ( f0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( E1 ) )
+E3 = SIGMA Q4 ^ Q41 ( E0 JOIN Q42 E2 )
+inpt="[ SIGMA Q4 ^ Q41 ( [ PROJ L0 ( PROJ L01 ( f0 ) ) ] JOIN Q42 [ SIGMA Q2 ( SIGMA Q21 ( [ SIGMA Q1 ^ Q11 ( f0 ) ] ) ) ] ) ]"
+
+EX-7: (Rule 1,2,3,8)
+
+E0 = PROJ L0 ( PROJ L01 ( f0 ) )
+E1 = SIGMA Q1 ^ Q11 ( f0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( E1 ) )
+E3 = PROJ L4 UNION L41 ( E0 JOIN Q4 E2 )
+inpt="[ PROJ L4 UNION L41 ( [ PROJ L0 ( PROJ L01 ( f0 ) ) ] JOIN Q4 [ SIGMA Q2 ( SIGMA Q21 ( [ SIGMA Q1 ^ Q11 ( f0 ) ] ) ) ] ) ]"
+
+
+EX-8: (Rule 1,2,3,9)
+
+
+E0 = PROJ L0 ( PROJ L01 ( f0 ) )
+E1 = SIGMA Q1 ^ Q11 ( f0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( E1 ) )
+E3 = E0 UNION E2
+inpt="[ [ PROJ L0 ( PROJ L01 ( f0 ) ) ] UNION [ SIGMA Q2 ( SIGMA Q21 ( [ SIGMA Q1 ^ Q11 ( f0 ) ] ) ) ] ]"
+
+
+EX-9: (Rule 1,2,3,4b,10)
+
+E0 = SIGMA Q0 ^ Q01 ( f0 )
+E1 = SIGMA Q1 ( SIGMA Q11 ( E0 )
+E2 = PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) )
+E3 = SIGMA Q3 ( f1 JOIN Q31 f2 )
+E4 = ( E1 UNION E2 ) UNION E3
+inpt="[ ( [ SIGMA Q1 ( SIGMA Q11 ( [ SIGMA Q0 ^ Q01 ( f0 ) ] ) ] UNION [ PROJ L2 ( PROJ L21 ( PROJ L22 ( f0 ) ) ) ] ) UNION [ SIGMA Q3 ( f1 JOIN Q31 f2 ) ] ]"
+
+
+EX-10: (Rule 1,2,3,11)
+
+E0 = PROJ L4 ( PROJ L41 ( f ) )
+E1 = SIGMA Q1 ^ Q11 ( E0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( f ) )
+E3 = SIGMA Q0 ( E1 UNION E2 )
+inpt="[ SIGMA Q0 ( [ SIGMA Q1 ^ Q11 ( [ PROJ L4 ( PROJ L41 ( f ) ) ] ) ] UNION [ SIGMA Q2 ( SIGMA Q21 ( f ) ) ] ) ]"
+
+
+EX-11: (Rule 1,2,3,12)
+
+E0 = PROJ L4 ( PROJ L41 ( f ) )
+E1 = SIGMA Q1 ^ Q11 ( E0 )
+E2 = SIGMA Q2 ( SIGMA Q21 ( f ) )
+E3 = PROJ L0 ( E1 UNION E2 )
+inpt="[ PROJ L0 ( [ SIGMA Q1 ^ Q11 ( [ PROJ L4 ( PROJ L41 ( f ) ) ] ) ] UNION [ SIGMA Q2 ( SIGMA Q21 ( f ) ) ] ) ]"
