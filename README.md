@@ -25,3 +25,9 @@ http://www.dabeaz.com/ply/ply.html
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
+ASSIGNMENT-2
+------------
+Implement an Equivalent Relational algebric expression generator which gives all the equivalent expressions using Equivalence Rules of relational algebra.
+
+INPUT- Single relational algebric expression
+OUTPUT- All expression that are euivalent to given expression.
