@@ -34,3 +34,12 @@ INPUT- Single relational algebric expression
 OUTPUT- All expression that are euivalent to given expression.
 
 NOTE: All the instructions related to I/O format are specified in the Script itself.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+ASSIGNMENT-3
+------------
+Write a Program which shall read a concurrent schedule involving n transactions with read and write instructions on data items from an input file (sample input file attached) and find whether the schedule is Conflict Serializable or not using the graph-based method discussed in the class. In case of conflict serializable schedule, your program shall also give the serializability order as well and for non-serializable schedule, give the cycle(s) present in the graph.The sample input contains 3 transactions (T1, T2, T3) and 3 data items (A, B, C) however your program shall be able to handle any finite number of transactions and data items. There shall not be any constraints on number of transactions and data items.
+
+
+
